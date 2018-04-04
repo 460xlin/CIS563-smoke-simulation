@@ -6,11 +6,11 @@
 
 #IncludeRegexTransform: 
 
-/home/xinyulin/CIS563-smoke-simulation/CIS563_SmokeBaseCode/src/basic_math.cpp
+/Users/xinyulin/CIS563/CIS563-smoke-simulation/CIS563_SmokeBaseCode/src/basic_math.cpp
 basic_math.h
-/home/xinyulin/CIS563-smoke-simulation/CIS563_SmokeBaseCode/src/basic_math.h
+/Users/xinyulin/CIS563/CIS563-smoke-simulation/CIS563_SmokeBaseCode/src/basic_math.h
 custom_output.h
-/home/xinyulin/CIS563-smoke-simulation/CIS563_SmokeBaseCode/src/custom_output.h
+/Users/xinyulin/CIS563/CIS563-smoke-simulation/CIS563_SmokeBaseCode/src/custom_output.h
 cmath
 -
 cstdarg
@@ -18,9 +18,9 @@ cstdarg
 iostream
 -
 
-/home/xinyulin/CIS563-smoke-simulation/CIS563_SmokeBaseCode/src/basic_math.h
+/Users/xinyulin/CIS563/CIS563-smoke-simulation/CIS563_SmokeBaseCode/src/basic_math.h
 
-/home/xinyulin/CIS563-smoke-simulation/CIS563_SmokeBaseCode/src/camera.cpp
+/Users/xinyulin/CIS563/CIS563-smoke-simulation/CIS563_SmokeBaseCode/src/camera.cpp
 assert.h
 -
 stdio.h
@@ -34,75 +34,75 @@ math.h
 time.h
 -
 open_gl_headers.h
-/home/xinyulin/CIS563-smoke-simulation/CIS563_SmokeBaseCode/src/open_gl_headers.h
+/Users/xinyulin/CIS563/CIS563-smoke-simulation/CIS563_SmokeBaseCode/src/open_gl_headers.h
 basic_math.h
-/home/xinyulin/CIS563-smoke-simulation/CIS563_SmokeBaseCode/src/basic_math.h
+/Users/xinyulin/CIS563/CIS563-smoke-simulation/CIS563_SmokeBaseCode/src/basic_math.h
 camera.h
-/home/xinyulin/CIS563-smoke-simulation/CIS563_SmokeBaseCode/src/camera.h
+/Users/xinyulin/CIS563/CIS563-smoke-simulation/CIS563_SmokeBaseCode/src/camera.h
 
-/home/xinyulin/CIS563-smoke-simulation/CIS563_SmokeBaseCode/src/camera.h
+/Users/xinyulin/CIS563/CIS563-smoke-simulation/CIS563_SmokeBaseCode/src/camera.h
 open_gl_headers.h
-/home/xinyulin/CIS563-smoke-simulation/CIS563_SmokeBaseCode/src/open_gl_headers.h
+/Users/xinyulin/CIS563/CIS563-smoke-simulation/CIS563_SmokeBaseCode/src/open_gl_headers.h
 vec.h
-/home/xinyulin/CIS563-smoke-simulation/CIS563_SmokeBaseCode/src/vec.h
+/Users/xinyulin/CIS563/CIS563-smoke-simulation/CIS563_SmokeBaseCode/src/vec.h
 matrix.h
-/home/xinyulin/CIS563-smoke-simulation/CIS563_SmokeBaseCode/src/matrix.h
+/Users/xinyulin/CIS563/CIS563-smoke-simulation/CIS563_SmokeBaseCode/src/matrix.h
 
-/home/xinyulin/CIS563-smoke-simulation/CIS563_SmokeBaseCode/src/clock.h
+/Users/xinyulin/CIS563/CIS563-smoke-simulation/CIS563_SmokeBaseCode/src/clock.h
 timer.h
-/home/xinyulin/CIS563-smoke-simulation/CIS563_SmokeBaseCode/src/timer.h
+/Users/xinyulin/CIS563/CIS563-smoke-simulation/CIS563_SmokeBaseCode/src/timer.h
 
-/home/xinyulin/CIS563-smoke-simulation/CIS563_SmokeBaseCode/src/constants.cpp
+/Users/xinyulin/CIS563/CIS563-smoke-simulation/CIS563_SmokeBaseCode/src/constants.cpp
 constants.h
-/home/xinyulin/CIS563-smoke-simulation/CIS563_SmokeBaseCode/src/constants.h
+/Users/xinyulin/CIS563/CIS563-smoke-simulation/CIS563_SmokeBaseCode/src/constants.h
 
-/home/xinyulin/CIS563-smoke-simulation/CIS563_SmokeBaseCode/src/constants.h
+/Users/xinyulin/CIS563/CIS563-smoke-simulation/CIS563_SmokeBaseCode/src/constants.h
 
-/home/xinyulin/CIS563-smoke-simulation/CIS563_SmokeBaseCode/src/custom_output.h
+/Users/xinyulin/CIS563/CIS563-smoke-simulation/CIS563_SmokeBaseCode/src/custom_output.h
 iostream
 -
 sstream
 -
 
-/home/xinyulin/CIS563-smoke-simulation/CIS563_SmokeBaseCode/src/fps.cpp
+/Users/xinyulin/CIS563/CIS563-smoke-simulation/CIS563_SmokeBaseCode/src/fps.cpp
 fps.h
-/home/xinyulin/CIS563-smoke-simulation/CIS563_SmokeBaseCode/src/fps.h
+/Users/xinyulin/CIS563/CIS563-smoke-simulation/CIS563_SmokeBaseCode/src/fps.h
 clock.h
-/home/xinyulin/CIS563-smoke-simulation/CIS563_SmokeBaseCode/src/clock.h
+/Users/xinyulin/CIS563/CIS563-smoke-simulation/CIS563_SmokeBaseCode/src/clock.h
 
-/home/xinyulin/CIS563-smoke-simulation/CIS563_SmokeBaseCode/src/fps.h
+/Users/xinyulin/CIS563/CIS563-smoke-simulation/CIS563_SmokeBaseCode/src/fps.h
 vector
 -
 string.h
 -
 
-/home/xinyulin/CIS563-smoke-simulation/CIS563_SmokeBaseCode/src/grid_data.cpp
+/Users/xinyulin/CIS563/CIS563-smoke-simulation/CIS563_SmokeBaseCode/src/grid_data.cpp
 grid_data.h
-/home/xinyulin/CIS563-smoke-simulation/CIS563_SmokeBaseCode/src/grid_data.h
+/Users/xinyulin/CIS563/CIS563-smoke-simulation/CIS563_SmokeBaseCode/src/grid_data.h
 
-/home/xinyulin/CIS563-smoke-simulation/CIS563_SmokeBaseCode/src/grid_data.h
+/Users/xinyulin/CIS563/CIS563-smoke-simulation/CIS563_SmokeBaseCode/src/grid_data.h
 vector
 -
 vec.h
-/home/xinyulin/CIS563-smoke-simulation/CIS563_SmokeBaseCode/src/vec.h
+/Users/xinyulin/CIS563/CIS563-smoke-simulation/CIS563_SmokeBaseCode/src/vec.h
 constants.h
-/home/xinyulin/CIS563-smoke-simulation/CIS563_SmokeBaseCode/src/constants.h
+/Users/xinyulin/CIS563/CIS563-smoke-simulation/CIS563_SmokeBaseCode/src/constants.h
 
-/home/xinyulin/CIS563-smoke-simulation/CIS563_SmokeBaseCode/src/grid_data_matrix.h
+/Users/xinyulin/CIS563/CIS563-smoke-simulation/CIS563_SmokeBaseCode/src/grid_data_matrix.h
 grid_data.h
-/home/xinyulin/CIS563-smoke-simulation/CIS563_SmokeBaseCode/src/grid_data.h
+/Users/xinyulin/CIS563/CIS563-smoke-simulation/CIS563_SmokeBaseCode/src/grid_data.h
 
-/home/xinyulin/CIS563-smoke-simulation/CIS563_SmokeBaseCode/src/mac_grid.cpp
+/Users/xinyulin/CIS563/CIS563-smoke-simulation/CIS563_SmokeBaseCode/src/mac_grid.cpp
 mac_grid.h
-/home/xinyulin/CIS563-smoke-simulation/CIS563_SmokeBaseCode/src/mac_grid.h
+/Users/xinyulin/CIS563/CIS563-smoke-simulation/CIS563_SmokeBaseCode/src/mac_grid.h
 open_gl_headers.h
-/home/xinyulin/CIS563-smoke-simulation/CIS563_SmokeBaseCode/src/open_gl_headers.h
+/Users/xinyulin/CIS563/CIS563-smoke-simulation/CIS563_SmokeBaseCode/src/open_gl_headers.h
 camera.h
-/home/xinyulin/CIS563-smoke-simulation/CIS563_SmokeBaseCode/src/camera.h
+/Users/xinyulin/CIS563/CIS563-smoke-simulation/CIS563_SmokeBaseCode/src/camera.h
 custom_output.h
-/home/xinyulin/CIS563-smoke-simulation/CIS563_SmokeBaseCode/src/custom_output.h
+/Users/xinyulin/CIS563/CIS563-smoke-simulation/CIS563_SmokeBaseCode/src/custom_output.h
 constants.h
-/home/xinyulin/CIS563-smoke-simulation/CIS563_SmokeBaseCode/src/constants.h
+/Users/xinyulin/CIS563/CIS563-smoke-simulation/CIS563_SmokeBaseCode/src/constants.h
 math.h
 -
 map
@@ -114,39 +114,39 @@ cstdlib
 fstream
 -
 
-/home/xinyulin/CIS563-smoke-simulation/CIS563_SmokeBaseCode/src/mac_grid.h
+/Users/xinyulin/CIS563/CIS563-smoke-simulation/CIS563_SmokeBaseCode/src/mac_grid.h
 open_gl_headers.h
-/home/xinyulin/CIS563-smoke-simulation/CIS563_SmokeBaseCode/src/open_gl_headers.h
+/Users/xinyulin/CIS563/CIS563-smoke-simulation/CIS563_SmokeBaseCode/src/open_gl_headers.h
 vec.h
-/home/xinyulin/CIS563-smoke-simulation/CIS563_SmokeBaseCode/src/vec.h
+/Users/xinyulin/CIS563/CIS563-smoke-simulation/CIS563_SmokeBaseCode/src/vec.h
 grid_data.h
-/home/xinyulin/CIS563-smoke-simulation/CIS563_SmokeBaseCode/src/grid_data.h
+/Users/xinyulin/CIS563/CIS563-smoke-simulation/CIS563_SmokeBaseCode/src/grid_data.h
 grid_data_matrix.h
-/home/xinyulin/CIS563-smoke-simulation/CIS563_SmokeBaseCode/src/grid_data_matrix.h
+/Users/xinyulin/CIS563/CIS563-smoke-simulation/CIS563_SmokeBaseCode/src/grid_data_matrix.h
 Partio.h
 -
 
-/home/xinyulin/CIS563-smoke-simulation/CIS563_SmokeBaseCode/src/main.cpp
+/Users/xinyulin/CIS563/CIS563-smoke-simulation/CIS563_SmokeBaseCode/src/main.cpp
 smoke_sim.h
-/home/xinyulin/CIS563-smoke-simulation/CIS563_SmokeBaseCode/src/smoke_sim.h
+/Users/xinyulin/CIS563/CIS563-smoke-simulation/CIS563_SmokeBaseCode/src/smoke_sim.h
 camera.h
-/home/xinyulin/CIS563-smoke-simulation/CIS563_SmokeBaseCode/src/camera.h
+/Users/xinyulin/CIS563/CIS563-smoke-simulation/CIS563_SmokeBaseCode/src/camera.h
 fps.h
-/home/xinyulin/CIS563-smoke-simulation/CIS563_SmokeBaseCode/src/fps.h
+/Users/xinyulin/CIS563/CIS563-smoke-simulation/CIS563_SmokeBaseCode/src/fps.h
 constants.h
-/home/xinyulin/CIS563-smoke-simulation/CIS563_SmokeBaseCode/src/constants.h
+/Users/xinyulin/CIS563/CIS563-smoke-simulation/CIS563_SmokeBaseCode/src/constants.h
 stdio.h
 -
 cmath
 -
 open_gl_headers.h
-/home/xinyulin/CIS563-smoke-simulation/CIS563_SmokeBaseCode/src/open_gl_headers.h
+/Users/xinyulin/CIS563/CIS563-smoke-simulation/CIS563_SmokeBaseCode/src/open_gl_headers.h
 basic_math.h
-/home/xinyulin/CIS563-smoke-simulation/CIS563_SmokeBaseCode/src/basic_math.h
+/Users/xinyulin/CIS563/CIS563-smoke-simulation/CIS563_SmokeBaseCode/src/basic_math.h
 string.h
 -
 
-/home/xinyulin/CIS563-smoke-simulation/CIS563_SmokeBaseCode/src/matrix.h
+/Users/xinyulin/CIS563/CIS563-smoke-simulation/CIS563_SmokeBaseCode/src/matrix.h
 stdio.h
 -
 stdlib.h
@@ -168,7 +168,7 @@ string
 iostream
 -
 vec.h
-/home/xinyulin/CIS563-smoke-simulation/CIS563_SmokeBaseCode/src/vec.h
+/Users/xinyulin/CIS563/CIS563-smoke-simulation/CIS563_SmokeBaseCode/src/vec.h
 stdexcept
 -
 stdexcpt.h
@@ -180,7 +180,7 @@ stdexcept
 stdexcep
 -
 
-/home/xinyulin/CIS563-smoke-simulation/CIS563_SmokeBaseCode/src/open_gl_headers.h
+/Users/xinyulin/CIS563/CIS563-smoke-simulation/CIS563_SmokeBaseCode/src/open_gl_headers.h
 GL/gl.h
 -
 GL/glu.h
@@ -188,11 +188,11 @@ GL/glu.h
 GL/glut.h
 -
 ../../GL/GL.h
-/home/xinyulin/CIS563-smoke-simulation/GL/GL.h
+/Users/xinyulin/CIS563/CIS563-smoke-simulation/GL/GL.h
 ../../GL/GLU.h
-/home/xinyulin/CIS563-smoke-simulation/GL/GLU.h
+/Users/xinyulin/CIS563/CIS563-smoke-simulation/GL/GLU.h
 ../../GL/glut.h
-/home/xinyulin/CIS563-smoke-simulation/GL/glut.h
+/Users/xinyulin/CIS563/CIS563-smoke-simulation/GL/glut.h
 OpenGL/gl.h
 -
 OpenGL/glu.h
@@ -200,29 +200,29 @@ OpenGL/glu.h
 GLUT/glut.h
 -
 
-/home/xinyulin/CIS563-smoke-simulation/CIS563_SmokeBaseCode/src/smoke_sim.cpp
+/Users/xinyulin/CIS563/CIS563-smoke-simulation/CIS563_SmokeBaseCode/src/smoke_sim.cpp
 smoke_sim.h
-/home/xinyulin/CIS563-smoke-simulation/CIS563_SmokeBaseCode/src/smoke_sim.h
+/Users/xinyulin/CIS563/CIS563-smoke-simulation/CIS563_SmokeBaseCode/src/smoke_sim.h
 constants.h
-/home/xinyulin/CIS563-smoke-simulation/CIS563_SmokeBaseCode/src/constants.h
+/Users/xinyulin/CIS563/CIS563-smoke-simulation/CIS563_SmokeBaseCode/src/constants.h
 open_gl_headers.h
-/home/xinyulin/CIS563-smoke-simulation/CIS563_SmokeBaseCode/src/open_gl_headers.h
+/Users/xinyulin/CIS563/CIS563-smoke-simulation/CIS563_SmokeBaseCode/src/open_gl_headers.h
 stb_image_write.h
-/home/xinyulin/CIS563-smoke-simulation/CIS563_SmokeBaseCode/src/stb_image_write.h
+/Users/xinyulin/CIS563/CIS563-smoke-simulation/CIS563_SmokeBaseCode/src/stb_image_write.h
 custom_output.h
-/home/xinyulin/CIS563-smoke-simulation/CIS563_SmokeBaseCode/src/custom_output.h
+/Users/xinyulin/CIS563/CIS563-smoke-simulation/CIS563_SmokeBaseCode/src/custom_output.h
 basic_math.h
-/home/xinyulin/CIS563-smoke-simulation/CIS563_SmokeBaseCode/src/basic_math.h
+/Users/xinyulin/CIS563/CIS563-smoke-simulation/CIS563_SmokeBaseCode/src/basic_math.h
 fstream
 -
 
-/home/xinyulin/CIS563-smoke-simulation/CIS563_SmokeBaseCode/src/smoke_sim.h
+/Users/xinyulin/CIS563/CIS563-smoke-simulation/CIS563_SmokeBaseCode/src/smoke_sim.h
 mac_grid.h
-/home/xinyulin/CIS563-smoke-simulation/CIS563_SmokeBaseCode/src/mac_grid.h
+/Users/xinyulin/CIS563/CIS563-smoke-simulation/CIS563_SmokeBaseCode/src/mac_grid.h
 Partio.h
 -
 
-/home/xinyulin/CIS563-smoke-simulation/CIS563_SmokeBaseCode/src/stb_image_write.h
+/Users/xinyulin/CIS563/CIS563-smoke-simulation/CIS563_SmokeBaseCode/src/stb_image_write.h
 stdarg.h
 -
 stdlib.h
@@ -234,7 +234,7 @@ string.h
 assert.h
 -
 
-/home/xinyulin/CIS563-smoke-simulation/CIS563_SmokeBaseCode/src/timer.h
+/Users/xinyulin/CIS563/CIS563-smoke-simulation/CIS563_SmokeBaseCode/src/timer.h
 windows.h
 -
 time.h
@@ -244,11 +244,11 @@ sys/time.h
 time.h
 -
 
-/home/xinyulin/CIS563-smoke-simulation/CIS563_SmokeBaseCode/src/vec.cpp
+/Users/xinyulin/CIS563/CIS563-smoke-simulation/CIS563_SmokeBaseCode/src/vec.cpp
 vec.h
-/home/xinyulin/CIS563-smoke-simulation/CIS563_SmokeBaseCode/src/vec.h
+/Users/xinyulin/CIS563/CIS563-smoke-simulation/CIS563_SmokeBaseCode/src/vec.h
 
-/home/xinyulin/CIS563-smoke-simulation/CIS563_SmokeBaseCode/src/vec.h
+/Users/xinyulin/CIS563/CIS563-smoke-simulation/CIS563_SmokeBaseCode/src/vec.h
 iostream
 -
 assert.h

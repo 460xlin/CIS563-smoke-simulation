@@ -1,18 +1,18 @@
-/home/xinyulin/software/clion-2017.3.1/bin/cmake/bin/cmake -DCMAKE_BUILD_TYPE=Debug -G "CodeBlocks - Unix Makefiles" /home/xinyulin/CIS563-smoke-simulation/CIS563_SmokeBaseCode
--- The CXX compiler identification is GNU 5.4.0
--- Check for working CXX compiler: /usr/bin/c++
--- Check for working CXX compiler: /usr/bin/c++ -- works
+/Applications/CLion.app/Contents/bin/cmake/bin/cmake -DCMAKE_BUILD_TYPE=Debug -G "CodeBlocks - Unix Makefiles" /Users/xinyulin/CIS563/CIS563-smoke-simulation/CIS563_SmokeBaseCode
+-- The CXX compiler identification is AppleClang 9.0.0.9000039
+-- Check for working CXX compiler: /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++
+-- Check for working CXX compiler: /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ -- works
 -- Detecting CXX compiler ABI info
 -- Detecting CXX compiler ABI info - done
 -- Detecting CXX compile features
 -- Detecting CXX compile features - done
 -- Debug Build
 -- Debug Build
--- Found Git: /usr/bin/git (found version "2.16.1") 
+-- Found Git: /usr/local/bin/git (found version "2.15.1") 
 -- Downloading/updating partio
 -- Configuring done
 -- Generating done
--- Build files have been written to: /home/xinyulin/CIS563-smoke-simulation/CIS563_SmokeBaseCode/cmake-build-debug/partio-download
+-- Build files have been written to: /Users/xinyulin/CIS563/CIS563-smoke-simulation/CIS563_SmokeBaseCode/cmake-build-debug/partio-download
 Scanning dependencies of target partio-download
 [ 11%] Creating directories for 'partio-download'
 [ 22%] Performing download step (git clone) for 'partio-download'
@@ -28,7 +28,7 @@ do so (now or later) by using -b with the checkout command again. Example:
 
   git checkout -b <new-branch-name>
 
-HEAD is now at bfc7c32 Compile fix for mac os x (unsigned int instead of uint)
+HEAD is now at bfc7c32... Compile fix for mac os x (unsigned int instead of uint)
 [ 33%] Performing patch step for 'partio-download'
 [ 44%] Skipping update step for 'partio-download'
 [ 55%] No configure step for 'partio-download'
@@ -37,16 +37,16 @@ HEAD is now at bfc7c32 Compile fix for mac os x (unsigned int instead of uint)
 [ 88%] No test step for 'partio-download'
 [100%] Completed 'partio-download'
 [100%] Built target partio-download
--- The C compiler identification is GNU 5.4.0
--- Check for working C compiler: /usr/bin/cc
--- Check for working C compiler: /usr/bin/cc -- works
+-- The C compiler identification is AppleClang 9.0.0.9000039
+-- Check for working C compiler: /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc
+-- Check for working C compiler: /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc -- works
 -- Detecting C compiler ABI info
 -- Detecting C compiler ABI info - done
 -- Detecting C compile features
 -- Detecting C compile features - done
--- Found OpenGL: /usr/lib/x86_64-linux-gnu/libGL.so  
--- Found GLUT: /usr/lib/x86_64-linux-gnu/libglut.so  
--- Found Eigen3: /usr/include/eigen3 (Required is at least version "2.91.0") 
+-- Found OpenGL: /System/Library/Frameworks/OpenGL.framework   
+-- Found GLUT: /System/Library/Frameworks/GLUT.framework  
+-- Found Eigen3: /usr/local/include/eigen3 (Required is at least version "2.91.0") 
 -- Configuring done
 -- Generating done
--- Build files have been written to: /home/xinyulin/CIS563-smoke-simulation/CIS563_SmokeBaseCode/cmake-build-debug
+-- Build files have been written to: /Users/xinyulin/CIS563/CIS563-smoke-simulation/CIS563_SmokeBaseCode/cmake-build-debug

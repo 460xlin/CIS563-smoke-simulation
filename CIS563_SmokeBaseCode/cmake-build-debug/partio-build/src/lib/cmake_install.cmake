@@ -1,8 +1,8 @@
-# Install script for directory: /home/xinyulin/CIS563-smoke-simulation/CIS563_SmokeBaseCode/cmake-build-debug/partio-src/src/lib
+# Install script for directory: /Users/xinyulin/CIS563/CIS563-smoke-simulation/CIS563_SmokeBaseCode/cmake-build-debug/partio-src/src/lib
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
-  set(CMAKE_INSTALL_PREFIX "/home/xinyulin/CIS563-smoke-simulation/CIS563_SmokeBaseCode/Linux-4.13.0-x86_64")
+  set(CMAKE_INSTALL_PREFIX "/Users/xinyulin/CIS563/CIS563-smoke-simulation/CIS563_SmokeBaseCode/Darwin-17.4.0-x86_64")
 endif()
 string(REGEX REPLACE "/$" "" CMAKE_INSTALL_PREFIX "${CMAKE_INSTALL_PREFIX}")
 
@@ -27,20 +27,24 @@ if(NOT CMAKE_INSTALL_COMPONENT)
   endif()
 endif()
 
-# Install shared libraries without execute permission?
-if(NOT DEFINED CMAKE_INSTALL_SO_NO_EXE)
-  set(CMAKE_INSTALL_SO_NO_EXE "1")
+# Is this installation the result of a crosscompile?
+if(NOT DEFINED CMAKE_CROSSCOMPILING)
+  set(CMAKE_CROSSCOMPILING "FALSE")
 endif()
 
-if("${CMAKE_INSTALL_COMPONENT}" STREQUAL "Unspecified" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib" TYPE STATIC_LIBRARY FILES "/home/xinyulin/CIS563-smoke-simulation/CIS563_SmokeBaseCode/cmake-build-debug/partio-build/lib/libpartio.a")
+if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib" TYPE STATIC_LIBRARY FILES "/Users/xinyulin/CIS563/CIS563-smoke-simulation/CIS563_SmokeBaseCode/cmake-build-debug/partio-build/lib/libpartio.a")
+  if(EXISTS "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/lib/libpartio.a" AND
+     NOT IS_SYMLINK "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/lib/libpartio.a")
+    execute_process(COMMAND "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/ranlib" "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/lib/libpartio.a")
+  endif()
 endif()
 
-if("${CMAKE_INSTALL_COMPONENT}" STREQUAL "Unspecified" OR NOT CMAKE_INSTALL_COMPONENT)
+if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
   file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/include" TYPE FILE FILES
-    "/home/xinyulin/CIS563-smoke-simulation/CIS563_SmokeBaseCode/cmake-build-debug/partio-src/src/lib/Partio.h"
-    "/home/xinyulin/CIS563-smoke-simulation/CIS563_SmokeBaseCode/cmake-build-debug/partio-src/src/lib/PartioAttribute.h"
-    "/home/xinyulin/CIS563-smoke-simulation/CIS563_SmokeBaseCode/cmake-build-debug/partio-src/src/lib/PartioIterator.h"
+    "/Users/xinyulin/CIS563/CIS563-smoke-simulation/CIS563_SmokeBaseCode/cmake-build-debug/partio-src/src/lib/Partio.h"
+    "/Users/xinyulin/CIS563/CIS563-smoke-simulation/CIS563_SmokeBaseCode/cmake-build-debug/partio-src/src/lib/PartioAttribute.h"
+    "/Users/xinyulin/CIS563/CIS563-smoke-simulation/CIS563_SmokeBaseCode/cmake-build-debug/partio-src/src/lib/PartioIterator.h"
     )
 endif()
 

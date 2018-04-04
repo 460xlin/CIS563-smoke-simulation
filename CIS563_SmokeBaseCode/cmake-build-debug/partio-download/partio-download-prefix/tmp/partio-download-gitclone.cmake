@@ -4,21 +4,21 @@ endif()
 
 set(run 0)
 
-if("/home/xinyulin/CIS563-smoke-simulation/CIS563_SmokeBaseCode/cmake-build-debug/partio-download/partio-download-prefix/src/partio-download-stamp/partio-download-gitinfo.txt" IS_NEWER_THAN "/home/xinyulin/CIS563-smoke-simulation/CIS563_SmokeBaseCode/cmake-build-debug/partio-download/partio-download-prefix/src/partio-download-stamp/partio-download-gitclone-lastrun.txt")
+if("/Users/xinyulin/CIS563/CIS563-smoke-simulation/CIS563_SmokeBaseCode/cmake-build-debug/partio-download/partio-download-prefix/src/partio-download-stamp/partio-download-gitinfo.txt" IS_NEWER_THAN "/Users/xinyulin/CIS563/CIS563-smoke-simulation/CIS563_SmokeBaseCode/cmake-build-debug/partio-download/partio-download-prefix/src/partio-download-stamp/partio-download-gitclone-lastrun.txt")
   set(run 1)
 endif()
 
 if(NOT run)
-  message(STATUS "Avoiding repeated git clone, stamp file is up to date: '/home/xinyulin/CIS563-smoke-simulation/CIS563_SmokeBaseCode/cmake-build-debug/partio-download/partio-download-prefix/src/partio-download-stamp/partio-download-gitclone-lastrun.txt'")
+  message(STATUS "Avoiding repeated git clone, stamp file is up to date: '/Users/xinyulin/CIS563/CIS563-smoke-simulation/CIS563_SmokeBaseCode/cmake-build-debug/partio-download/partio-download-prefix/src/partio-download-stamp/partio-download-gitclone-lastrun.txt'")
   return()
 endif()
 
 execute_process(
-  COMMAND ${CMAKE_COMMAND} -E remove_directory "/home/xinyulin/CIS563-smoke-simulation/CIS563_SmokeBaseCode/cmake-build-debug/partio-src"
+  COMMAND ${CMAKE_COMMAND} -E remove_directory "/Users/xinyulin/CIS563/CIS563-smoke-simulation/CIS563_SmokeBaseCode/cmake-build-debug/partio-src"
   RESULT_VARIABLE error_code
   )
 if(error_code)
-  message(FATAL_ERROR "Failed to remove directory: '/home/xinyulin/CIS563-smoke-simulation/CIS563_SmokeBaseCode/cmake-build-debug/partio-src'")
+  message(FATAL_ERROR "Failed to remove directory: '/Users/xinyulin/CIS563/CIS563-smoke-simulation/CIS563_SmokeBaseCode/cmake-build-debug/partio-src'")
 endif()
 
 set(git_options)
@@ -52,8 +52,8 @@ set(error_code 1)
 set(number_of_tries 0)
 while(error_code AND number_of_tries LESS 3)
   execute_process(
-    COMMAND "/usr/bin/git" ${git_options} clone ${git_clone_options} --origin "origin" "https://github.com/wdas/partio.git" "partio-src"
-    WORKING_DIRECTORY "/home/xinyulin/CIS563-smoke-simulation/CIS563_SmokeBaseCode/cmake-build-debug"
+    COMMAND "/usr/local/bin/git" ${git_options} clone ${git_clone_options} --origin "origin" "https://github.com/wdas/partio.git" "partio-src"
+    WORKING_DIRECTORY "/Users/xinyulin/CIS563/CIS563-smoke-simulation/CIS563_SmokeBaseCode/cmake-build-debug"
     RESULT_VARIABLE error_code
     )
   math(EXPR number_of_tries "${number_of_tries} + 1")
@@ -67,8 +67,8 @@ if(error_code)
 endif()
 
 execute_process(
-  COMMAND "/usr/bin/git" ${git_options} checkout v1.1.0 --
-  WORKING_DIRECTORY "/home/xinyulin/CIS563-smoke-simulation/CIS563_SmokeBaseCode/cmake-build-debug/partio-src"
+  COMMAND "/usr/local/bin/git" ${git_options} checkout v1.1.0 --
+  WORKING_DIRECTORY "/Users/xinyulin/CIS563/CIS563-smoke-simulation/CIS563_SmokeBaseCode/cmake-build-debug/partio-src"
   RESULT_VARIABLE error_code
   )
 if(error_code)
@@ -76,33 +76,33 @@ if(error_code)
 endif()
 
 execute_process(
-  COMMAND "/usr/bin/git" ${git_options} submodule init 
-  WORKING_DIRECTORY "/home/xinyulin/CIS563-smoke-simulation/CIS563_SmokeBaseCode/cmake-build-debug/partio-src"
+  COMMAND "/usr/local/bin/git" ${git_options} submodule init 
+  WORKING_DIRECTORY "/Users/xinyulin/CIS563/CIS563-smoke-simulation/CIS563_SmokeBaseCode/cmake-build-debug/partio-src"
   RESULT_VARIABLE error_code
   )
 if(error_code)
-  message(FATAL_ERROR "Failed to init submodules in: '/home/xinyulin/CIS563-smoke-simulation/CIS563_SmokeBaseCode/cmake-build-debug/partio-src'")
+  message(FATAL_ERROR "Failed to init submodules in: '/Users/xinyulin/CIS563/CIS563-smoke-simulation/CIS563_SmokeBaseCode/cmake-build-debug/partio-src'")
 endif()
 
 execute_process(
-  COMMAND "/usr/bin/git" ${git_options} submodule update --recursive --init 
-  WORKING_DIRECTORY "/home/xinyulin/CIS563-smoke-simulation/CIS563_SmokeBaseCode/cmake-build-debug/partio-src"
+  COMMAND "/usr/local/bin/git" ${git_options} submodule update --recursive --init 
+  WORKING_DIRECTORY "/Users/xinyulin/CIS563/CIS563-smoke-simulation/CIS563_SmokeBaseCode/cmake-build-debug/partio-src"
   RESULT_VARIABLE error_code
   )
 if(error_code)
-  message(FATAL_ERROR "Failed to update submodules in: '/home/xinyulin/CIS563-smoke-simulation/CIS563_SmokeBaseCode/cmake-build-debug/partio-src'")
+  message(FATAL_ERROR "Failed to update submodules in: '/Users/xinyulin/CIS563/CIS563-smoke-simulation/CIS563_SmokeBaseCode/cmake-build-debug/partio-src'")
 endif()
 
 # Complete success, update the script-last-run stamp file:
 #
 execute_process(
   COMMAND ${CMAKE_COMMAND} -E copy
-    "/home/xinyulin/CIS563-smoke-simulation/CIS563_SmokeBaseCode/cmake-build-debug/partio-download/partio-download-prefix/src/partio-download-stamp/partio-download-gitinfo.txt"
-    "/home/xinyulin/CIS563-smoke-simulation/CIS563_SmokeBaseCode/cmake-build-debug/partio-download/partio-download-prefix/src/partio-download-stamp/partio-download-gitclone-lastrun.txt"
-  WORKING_DIRECTORY "/home/xinyulin/CIS563-smoke-simulation/CIS563_SmokeBaseCode/cmake-build-debug/partio-src"
+    "/Users/xinyulin/CIS563/CIS563-smoke-simulation/CIS563_SmokeBaseCode/cmake-build-debug/partio-download/partio-download-prefix/src/partio-download-stamp/partio-download-gitinfo.txt"
+    "/Users/xinyulin/CIS563/CIS563-smoke-simulation/CIS563_SmokeBaseCode/cmake-build-debug/partio-download/partio-download-prefix/src/partio-download-stamp/partio-download-gitclone-lastrun.txt"
+  WORKING_DIRECTORY "/Users/xinyulin/CIS563/CIS563-smoke-simulation/CIS563_SmokeBaseCode/cmake-build-debug/partio-src"
   RESULT_VARIABLE error_code
   )
 if(error_code)
-  message(FATAL_ERROR "Failed to copy script-last-run stamp file: '/home/xinyulin/CIS563-smoke-simulation/CIS563_SmokeBaseCode/cmake-build-debug/partio-download/partio-download-prefix/src/partio-download-stamp/partio-download-gitclone-lastrun.txt'")
+  message(FATAL_ERROR "Failed to copy script-last-run stamp file: '/Users/xinyulin/CIS563/CIS563-smoke-simulation/CIS563_SmokeBaseCode/cmake-build-debug/partio-download/partio-download-prefix/src/partio-download-stamp/partio-download-gitclone-lastrun.txt'")
 endif()
 

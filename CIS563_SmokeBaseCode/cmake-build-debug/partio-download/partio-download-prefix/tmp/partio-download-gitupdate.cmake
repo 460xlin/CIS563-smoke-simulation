@@ -3,8 +3,8 @@ if("v1.1.0" STREQUAL "")
 endif()
 
 execute_process(
-  COMMAND "/usr/bin/git" rev-list --max-count=1 HEAD
-  WORKING_DIRECTORY "/home/xinyulin/CIS563-smoke-simulation/CIS563_SmokeBaseCode/cmake-build-debug/partio-src"
+  COMMAND "/usr/local/bin/git" rev-list --max-count=1 HEAD
+  WORKING_DIRECTORY "/Users/xinyulin/CIS563/CIS563-smoke-simulation/CIS563_SmokeBaseCode/cmake-build-debug/partio-src"
   RESULT_VARIABLE error_code
   OUTPUT_VARIABLE head_sha
   OUTPUT_STRIP_TRAILING_WHITESPACE
@@ -14,8 +14,8 @@ if(error_code)
 endif()
 
 execute_process(
-  COMMAND "/usr/bin/git" show-ref v1.1.0
-  WORKING_DIRECTORY "/home/xinyulin/CIS563-smoke-simulation/CIS563_SmokeBaseCode/cmake-build-debug/partio-src"
+  COMMAND "/usr/local/bin/git" show-ref v1.1.0
+  WORKING_DIRECTORY "/Users/xinyulin/CIS563/CIS563-smoke-simulation/CIS563_SmokeBaseCode/cmake-build-debug/partio-src"
   OUTPUT_VARIABLE show_ref_output
   )
 # If a remote ref is asked for, which can possibly move around,
@@ -40,8 +40,8 @@ endif()
 # This will fail if the tag does not exist (it probably has not been fetched
 # yet).
 execute_process(
-  COMMAND "/usr/bin/git" rev-list --max-count=1 v1.1.0
-  WORKING_DIRECTORY "/home/xinyulin/CIS563-smoke-simulation/CIS563_SmokeBaseCode/cmake-build-debug/partio-src"
+  COMMAND "/usr/local/bin/git" rev-list --max-count=1 v1.1.0
+  WORKING_DIRECTORY "/Users/xinyulin/CIS563/CIS563-smoke-simulation/CIS563_SmokeBaseCode/cmake-build-debug/partio-src"
   RESULT_VARIABLE error_code
   OUTPUT_VARIABLE tag_sha
   OUTPUT_STRIP_TRAILING_WHITESPACE
@@ -50,8 +50,8 @@ execute_process(
 # Is the hash checkout out that we want?
 if(error_code OR is_remote_ref OR NOT ("${tag_sha}" STREQUAL "${head_sha}"))
   execute_process(
-    COMMAND "/usr/bin/git" fetch
-    WORKING_DIRECTORY "/home/xinyulin/CIS563-smoke-simulation/CIS563_SmokeBaseCode/cmake-build-debug/partio-src"
+    COMMAND "/usr/local/bin/git" fetch
+    WORKING_DIRECTORY "/Users/xinyulin/CIS563/CIS563-smoke-simulation/CIS563_SmokeBaseCode/cmake-build-debug/partio-src"
     RESULT_VARIABLE error_code
     )
   if(error_code)
@@ -61,8 +61,8 @@ if(error_code OR is_remote_ref OR NOT ("${tag_sha}" STREQUAL "${head_sha}"))
   if(is_remote_ref)
     # Check if stash is needed
     execute_process(
-      COMMAND "/usr/bin/git" status --porcelain
-      WORKING_DIRECTORY "/home/xinyulin/CIS563-smoke-simulation/CIS563_SmokeBaseCode/cmake-build-debug/partio-src"
+      COMMAND "/usr/local/bin/git" status --porcelain
+      WORKING_DIRECTORY "/Users/xinyulin/CIS563/CIS563-smoke-simulation/CIS563_SmokeBaseCode/cmake-build-debug/partio-src"
       RESULT_VARIABLE error_code
       OUTPUT_VARIABLE repo_status
       )
@@ -75,8 +75,8 @@ if(error_code OR is_remote_ref OR NOT ("${tag_sha}" STREQUAL "${head_sha}"))
     # perform git pull --rebase
     if(need_stash)
       execute_process(
-        COMMAND "/usr/bin/git" stash save --all;--quiet
-        WORKING_DIRECTORY "/home/xinyulin/CIS563-smoke-simulation/CIS563_SmokeBaseCode/cmake-build-debug/partio-src"
+        COMMAND "/usr/local/bin/git" stash save --all;--quiet
+        WORKING_DIRECTORY "/Users/xinyulin/CIS563/CIS563-smoke-simulation/CIS563_SmokeBaseCode/cmake-build-debug/partio-src"
         RESULT_VARIABLE error_code
         )
       if(error_code)
@@ -86,61 +86,61 @@ if(error_code OR is_remote_ref OR NOT ("${tag_sha}" STREQUAL "${head_sha}"))
 
     # Pull changes from the remote branch
     execute_process(
-      COMMAND "/usr/bin/git" rebase ${git_remote}/${git_tag}
-      WORKING_DIRECTORY "/home/xinyulin/CIS563-smoke-simulation/CIS563_SmokeBaseCode/cmake-build-debug/partio-src"
+      COMMAND "/usr/local/bin/git" rebase ${git_remote}/${git_tag}
+      WORKING_DIRECTORY "/Users/xinyulin/CIS563/CIS563-smoke-simulation/CIS563_SmokeBaseCode/cmake-build-debug/partio-src"
       RESULT_VARIABLE error_code
       )
     if(error_code)
       # Rebase failed: Restore previous state.
       execute_process(
-        COMMAND "/usr/bin/git" rebase --abort
-        WORKING_DIRECTORY "/home/xinyulin/CIS563-smoke-simulation/CIS563_SmokeBaseCode/cmake-build-debug/partio-src"
+        COMMAND "/usr/local/bin/git" rebase --abort
+        WORKING_DIRECTORY "/Users/xinyulin/CIS563/CIS563-smoke-simulation/CIS563_SmokeBaseCode/cmake-build-debug/partio-src"
       )
       if(need_stash)
         execute_process(
-          COMMAND "/usr/bin/git" stash pop --index --quiet
-          WORKING_DIRECTORY "/home/xinyulin/CIS563-smoke-simulation/CIS563_SmokeBaseCode/cmake-build-debug/partio-src"
+          COMMAND "/usr/local/bin/git" stash pop --index --quiet
+          WORKING_DIRECTORY "/Users/xinyulin/CIS563/CIS563-smoke-simulation/CIS563_SmokeBaseCode/cmake-build-debug/partio-src"
           )
       endif()
-      message(FATAL_ERROR "\nFailed to rebase in: '/home/xinyulin/CIS563-smoke-simulation/CIS563_SmokeBaseCode/cmake-build-debug/partio-src/'.\nYou will have to resolve the conflicts manually")
+      message(FATAL_ERROR "\nFailed to rebase in: '/Users/xinyulin/CIS563/CIS563-smoke-simulation/CIS563_SmokeBaseCode/cmake-build-debug/partio-src/'.\nYou will have to resolve the conflicts manually")
     endif()
 
     if(need_stash)
       execute_process(
-        COMMAND "/usr/bin/git" stash pop --index --quiet
-        WORKING_DIRECTORY "/home/xinyulin/CIS563-smoke-simulation/CIS563_SmokeBaseCode/cmake-build-debug/partio-src"
+        COMMAND "/usr/local/bin/git" stash pop --index --quiet
+        WORKING_DIRECTORY "/Users/xinyulin/CIS563/CIS563-smoke-simulation/CIS563_SmokeBaseCode/cmake-build-debug/partio-src"
         RESULT_VARIABLE error_code
         )
       if(error_code)
         # Stash pop --index failed: Try again dropping the index
         execute_process(
-          COMMAND "/usr/bin/git" reset --hard --quiet
-          WORKING_DIRECTORY "/home/xinyulin/CIS563-smoke-simulation/CIS563_SmokeBaseCode/cmake-build-debug/partio-src"
+          COMMAND "/usr/local/bin/git" reset --hard --quiet
+          WORKING_DIRECTORY "/Users/xinyulin/CIS563/CIS563-smoke-simulation/CIS563_SmokeBaseCode/cmake-build-debug/partio-src"
           RESULT_VARIABLE error_code
           )
         execute_process(
-          COMMAND "/usr/bin/git" stash pop --quiet
-          WORKING_DIRECTORY "/home/xinyulin/CIS563-smoke-simulation/CIS563_SmokeBaseCode/cmake-build-debug/partio-src"
+          COMMAND "/usr/local/bin/git" stash pop --quiet
+          WORKING_DIRECTORY "/Users/xinyulin/CIS563/CIS563-smoke-simulation/CIS563_SmokeBaseCode/cmake-build-debug/partio-src"
           RESULT_VARIABLE error_code
           )
         if(error_code)
           # Stash pop failed: Restore previous state.
           execute_process(
-            COMMAND "/usr/bin/git" reset --hard --quiet ${head_sha}
-            WORKING_DIRECTORY "/home/xinyulin/CIS563-smoke-simulation/CIS563_SmokeBaseCode/cmake-build-debug/partio-src"
+            COMMAND "/usr/local/bin/git" reset --hard --quiet ${head_sha}
+            WORKING_DIRECTORY "/Users/xinyulin/CIS563/CIS563-smoke-simulation/CIS563_SmokeBaseCode/cmake-build-debug/partio-src"
           )
           execute_process(
-            COMMAND "/usr/bin/git" stash pop --index --quiet
-            WORKING_DIRECTORY "/home/xinyulin/CIS563-smoke-simulation/CIS563_SmokeBaseCode/cmake-build-debug/partio-src"
+            COMMAND "/usr/local/bin/git" stash pop --index --quiet
+            WORKING_DIRECTORY "/Users/xinyulin/CIS563/CIS563-smoke-simulation/CIS563_SmokeBaseCode/cmake-build-debug/partio-src"
           )
-          message(FATAL_ERROR "\nFailed to unstash changes in: '/home/xinyulin/CIS563-smoke-simulation/CIS563_SmokeBaseCode/cmake-build-debug/partio-src/'.\nYou will have to resolve the conflicts manually")
+          message(FATAL_ERROR "\nFailed to unstash changes in: '/Users/xinyulin/CIS563/CIS563-smoke-simulation/CIS563_SmokeBaseCode/cmake-build-debug/partio-src/'.\nYou will have to resolve the conflicts manually")
         endif()
       endif()
     endif()
   else()
     execute_process(
-      COMMAND "/usr/bin/git" checkout v1.1.0
-      WORKING_DIRECTORY "/home/xinyulin/CIS563-smoke-simulation/CIS563_SmokeBaseCode/cmake-build-debug/partio-src"
+      COMMAND "/usr/local/bin/git" checkout v1.1.0
+      WORKING_DIRECTORY "/Users/xinyulin/CIS563/CIS563-smoke-simulation/CIS563_SmokeBaseCode/cmake-build-debug/partio-src"
       RESULT_VARIABLE error_code
       )
     if(error_code)
@@ -149,12 +149,12 @@ if(error_code OR is_remote_ref OR NOT ("${tag_sha}" STREQUAL "${head_sha}"))
   endif()
 
   execute_process(
-    COMMAND "/usr/bin/git" submodule update --recursive --init 
-    WORKING_DIRECTORY "/home/xinyulin/CIS563-smoke-simulation/CIS563_SmokeBaseCode/cmake-build-debug/partio-src/"
+    COMMAND "/usr/local/bin/git" submodule update --recursive --init 
+    WORKING_DIRECTORY "/Users/xinyulin/CIS563/CIS563-smoke-simulation/CIS563_SmokeBaseCode/cmake-build-debug/partio-src/"
     RESULT_VARIABLE error_code
     )
   if(error_code)
-    message(FATAL_ERROR "Failed to update submodules in: '/home/xinyulin/CIS563-smoke-simulation/CIS563_SmokeBaseCode/cmake-build-debug/partio-src/'")
+    message(FATAL_ERROR "Failed to update submodules in: '/Users/xinyulin/CIS563/CIS563-smoke-simulation/CIS563_SmokeBaseCode/cmake-build-debug/partio-src/'")
   endif()
 endif()
 
