@@ -2,7 +2,7 @@
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
-  set(CMAKE_INSTALL_PREFIX "/Users/xinyulin/CIS563/CIS563-smoke-simulation/CIS563_SmokeBaseCode/Darwin-17.4.0-x86_64")
+  set(CMAKE_INSTALL_PREFIX "/Users/xinyulin/CIS563/CIS563-smoke-simulation/CIS563_SmokeBaseCode/Darwin-17.5.0-x86_64")
 endif()
 string(REGEX REPLACE "/$" "" CMAKE_INSTALL_PREFIX "${CMAKE_INSTALL_PREFIX}")
 

@@ -7,12 +7,9 @@ set(CMAKE_DEPENDS_GENERATOR "Unix Makefiles")
 # The top level Makefile was generated from the following files:
 set(CMAKE_MAKEFILE_DEPENDS
   "CMakeCache.txt"
-  "/Applications/CLion.app/Contents/bin/cmake/share/cmake-3.10/Modules/CMakeDetermineSystem.cmake"
   "/Applications/CLion.app/Contents/bin/cmake/share/cmake-3.10/Modules/CMakeGenericSystem.cmake"
-  "/Applications/CLion.app/Contents/bin/cmake/share/cmake-3.10/Modules/CMakeSystem.cmake.in"
   "/Applications/CLion.app/Contents/bin/cmake/share/cmake-3.10/Modules/CMakeSystemSpecificInformation.cmake"
   "/Applications/CLion.app/Contents/bin/cmake/share/cmake-3.10/Modules/CMakeSystemSpecificInitialize.cmake"
-  "/Applications/CLion.app/Contents/bin/cmake/share/cmake-3.10/Modules/CMakeUnixFindMake.cmake"
   "/Applications/CLion.app/Contents/bin/cmake/share/cmake-3.10/Modules/ExternalProject.cmake"
   "/Applications/CLion.app/Contents/bin/cmake/share/cmake-3.10/Modules/FindGit.cmake"
   "/Applications/CLion.app/Contents/bin/cmake/share/cmake-3.10/Modules/FindPackageHandleStandardArgs.cmake"
@@ -34,7 +31,6 @@ set(CMAKE_MAKEFILE_OUTPUTS
 
 # Byproducts of CMake generate step:
 set(CMAKE_MAKEFILE_PRODUCTS
-  "CMakeFiles/3.10.2/CMakeSystem.cmake"
   "partio-download-prefix/src/partio-download-stamp/partio-download-gitinfo.txt"
   "partio-download-prefix/tmp/partio-download-cfgcmd.txt"
   "CMakeFiles/CMakeDirectoryInformation.cmake"

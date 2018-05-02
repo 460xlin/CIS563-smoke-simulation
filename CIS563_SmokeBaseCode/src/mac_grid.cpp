@@ -132,40 +132,193 @@ void MACGrid::updateSources()
 
 void MACGrid::advectVelocity(double dt)
 {
-    // TODO: Calculate new velocities and store in target
+//    // TODO: Calculate new velocities and store in target
+//
+//
+//    // TODO: Get rid of these three lines after you implement yours
+//	target.mU = mU;
+//    target.mV = mV;
+//    target.mW = mW;
+//
+//    // TODO: Your code is here. It builds target.mU, target.mV and target.mW for all faces
+//    //
+//    //
+//    //
+//
+//    // Then save the result to our object
+//    mU = target.mU;
+//    mV = target.mV;
+//    mW = target.mW;
 
 
-    // TODO: Get rid of these three lines after you implement yours
+	target.mV = mV;
 	target.mU = mU;
-    target.mV = mV;
-    target.mW = mW;
+	target.mW = mW;
 
-    // TODO: Your code is here. It builds target.mU, target.mV and target.mW for all faces
-    //
-    //
-    //
+	for(int k = 0; k < theDim[MACGrid::Z]; k++)
+	{
+		for(int j = 0; j < theDim[MACGrid::Y]+1; j++)
+		{
+			for(int i = 0; i < theDim[MACGrid::X]; i++)
+			{
+				//consider the velocity V first
+				double xAxis = (double)(theCellSize*(i+i+1+i+i+1)/4.0);
+				double yAxis = (double)(theCellSize*j);
+				double zAxis = (double)(theCellSize*(k+k+1+k+k+1)/4.0);
+				vec3 pV  = vec3 (xAxis, yAxis, zAxis);
+				vec3 cVel = getVelocity (pV);
+				vec3 oldPV = pV -dt*cVel;
 
-    // Then save the result to our object
-    mU = target.mU;
-    mV = target.mV;
-    mW = target.mW;
+				//check boundary for oldPV
+				if(oldPV[0] <= 0)
+				{
+					oldPV[0] = 0;
+				}
+				if(oldPV[1] <= 0)
+				{
+					oldPV[1] = 0;
+				}
+				if(oldPV[2] <= 0)
+				{
+					oldPV[2] = 0;
+				}
+
+				vec3 oldcVel = getVelocity (oldPV);
+
+				target.mU (i, j, k) = oldcVel[0];
+				target.mV (i, j, k) = oldcVel[1];
+				target.mW (i, j, k) = oldcVel[2];
+			}
+		}
+	}
+
+	//only update the x axis
+	for(int k = 0; k < theDim[MACGrid::Z]; k++)
+	{
+		for(int j = 0; j <  theDim[MACGrid::Y]; j++)
+		{
+			for(int i = 0; i <  theDim[MACGrid::X]+1; i++)
+			{
+				//consider the velocity V      I
+				double xAxis = (double) (theCellSize*i);
+				double yAxis = (double)(theCellSize*(j+j+1+j+j+1)/4.0);
+				double zAxis = (double)(theCellSize*(k+k+1+k+k+1)/4.0);
+				vec3 pU  = vec3 (xAxis, yAxis, zAxis);
+				vec3 cVel = getVelocity (pU);
+				vec3 oldPU = pU -dt*cVel;
+
+				//check boundary for oldPV
+				if(oldPU[0] <= 0)
+				{
+					oldPU[0] = 0;
+				}
+				if(oldPU[1] <= 0)
+				{
+					oldPU[1] = 0;
+				}
+				if(oldPU[2] <= 0)
+				{
+					oldPU[2] = 0;
+				}
+
+				vec3 oldcVel = getVelocity (oldPU);
+
+				target.mU (i, j, k) = oldcVel[0];
+				target.mV (i, j, k) = oldcVel[1];
+				target.mW (i, j, k) = oldcVel[2];
+			}
+		}
+	}
+
+	//update in z axis
+	for(int k = 0; k < theDim[MACGrid::Z]+1; k++)
+	{
+		for(int j = 0; j < theDim[MACGrid::Y]; j++)
+		{
+			for(int i = 0; i < theDim[MACGrid::X]; i++)
+			{
+				//consider the velocity V
+				double xAxis = (double)(theCellSize*(i+i+1+i+i+1)/4.0);
+				double yAxis = (double)(theCellSize*(j+j+1+j+j+1)/4.0);
+				double zAxis = (double)(theCellSize*k);
+				vec3 pW  = vec3 (xAxis, yAxis, zAxis);
+				vec3 cVel = getVelocity (pW);
+				vec3 oldPW = pW - dt*cVel;
+
+				//check boundary for oldPV
+				if(oldPW[0] <= 0)
+				{
+					oldPW[0] = 0;
+				}
+				if(oldPW[1] <= 0)
+				{
+					oldPW[1] = 0;
+				}
+				if(oldPW[2] <= 0)
+				{
+					oldPW[2] = 0;
+				}
+				vec3 oldcVel = getVelocity (oldPW);
+				target.mU (i, j, k) = oldcVel[0];
+				target.mV (i, j, k) = oldcVel[1];
+				target.mW (i, j, k) = oldcVel[2];
+			}
+		}
+	}
+	mU = target.mU;
+	mV = target.mV;
+	mW = target.mW;
 
 }
 
 void MACGrid::advectTemperature(double dt)
 {
-    // TODO: Calculate new temp and store in target
+//    // TODO: Calculate new temp and store in target
+//
+//    // TODO: Get rid of this line after you implement yours
+//    target.mT = mT;
+//
+//    // TODO: Your code is here. It builds target.mT for all cells.
+//    //
+//    //
+//    //
+//
+//    // Then save the result to our object
+//    mT = target.mT;
 
-    // TODO: Get rid of this line after you implement yours
-    target.mT = mT;
 
-    // TODO: Your code is here. It builds target.mT for all cells.
-    //
-    //
-    //
+	target.mT = mT;
+	for(int k = 0; k < theDim[MACGrid::Z]; k++)
+	{
+		for(int j = 0; j < theDim[MACGrid::Y]; j++)
+		{
+			for(int i = 0; i < theDim[MACGrid::X]; i++)
+			{
+				vec3 P = getCenter(i, j, k);
+				vec3 temV = getVelocity(P);
+				vec3 oldP = P -dt*temV;
+				if(oldP[0] <= 0)
+				{
+					oldP = vec3(0, oldP[1], oldP[2]);
+				}
+				if(oldP[1] <= 0)
+				{
+					oldP = vec3(oldP[0], 0, oldP[2]);
+				}
+				if(oldP[2] <= 0)
+				{
+					oldP = vec3(oldP[0], oldP[1], 0);
+				}
+				double oldTem = getTemperature(oldP);
+				target.mT (i, j, k) = oldTem;
+				//cout<<"mT"<<target.mT (i, j, k)<<endl;
+			}
+		}
+	}
+	mT = target.mT;
 
-    // Then save the result to our object
-    mT = target.mT;
+
+
 }
 
 
@@ -188,57 +341,201 @@ void MACGrid::advectRenderingParticles(double dt) {
 
 void MACGrid::advectDensity(double dt)
 {
-    // TODO: Calculate new densitities and store in target
+//    // TODO: Calculate new densitities and store in target
+//
+//    // TODO: Get rid of this line after you implement yours
+//    target.mD = mD;
+//
+//    // TODO: Your code is here. It builds target.mD for all cells.
+//    //
+//    //
+//    //
+//
+//    // Then save the result to our object
+//    mD = target.mD;
 
-    // TODO: Get rid of this line after you implement yours
-    target.mD = mD;
+	target.mD = mD;
+	for(int k = 0; k < theDim[MACGrid::Z]; k++)
+	{
+		for(int j = 0; j < theDim[MACGrid::Y]; j++)
+		{
+			for(int i = 0; i < theDim[MACGrid::X]; i++)
+			{
+				vec3 pD = getCenter(i, j, k);
+				vec3 Density = getVelocity(pD);
+				vec3 oldPD = pD - dt*Density;
 
-    // TODO: Your code is here. It builds target.mD for all cells.
-    //
-    //
-    //
-
-    // Then save the result to our object
-    mD = target.mD;
+				//check boundary for oldPV
+				if(oldPD[0] <= 0)
+				{
+					oldPD = vec3(0, oldPD[1], oldPD[2]);
+				}
+				if(oldPD[1] <= 0)
+				{
+					oldPD = vec3(oldPD[0], 0, oldPD[2]);
+				}
+				if(oldPD[2] <= 0)
+				{
+					oldPD = vec3(oldPD[0], oldPD[1], 0);
+				}
+				double oldDen = getDensity (oldPD);
+				target.mD (i, j, k) = oldDen;
+			}
+		}
+	}
+	mD = target.mD;
 }
 
 void MACGrid::computeBouyancy(double dt)
 {
-	// TODO: Calculate bouyancy and store in target
+//	// TODO: Calculate bouyancy and store in target
+//
+//    // TODO: Get rid of this line after you implement yours
+//    target.mV = mV;
+//
+//    // TODO: Your code is here. It modifies target.mV for all y face velocities.
+//    //
+//    //
+//    //
+//
+//    // and then save the result to our object
+//    mV = target.mV;
 
-    // TODO: Get rid of this line after you implement yours
-    target.mV = mV;
 
-    // TODO: Your code is here. It modifies target.mV for all y face velocities.
-    //
-    //
-    //
+	target.mV = mV;
+	// Then save the result to our object.
+	double alpha = 5.0;
+	double beta = 15.0;
+	double Tambiant = 20.0;
 
-    // and then save the result to our object
-    mV = target.mV;
+	//set boundary for mv
+	for(int k = 0; k < theDim[MACGrid::Z]; k++)
+	{
+		for(int j = 1; j < theDim[MACGrid::Y]; j++)
+		{
+			for(int i = 0; i < theDim[MACGrid::X]; i++)
+			{
+				if((j+1) < theDim[MACGrid::Y])
+				{
+					double Fbouy = -alpha*((mD(i,j,k) + mD(i,j+1,k))/2.0)  + beta*((mT(i,j,k)+ mT(i,j+1, k))/2.0 - Tambiant);
+					target.mV (i,j,k) = target.mV(i,j,k) + Fbouy*dt;
+				}
+			}
+		}
+	}
+
+	mV = target.mV;
 }
+
 
 void MACGrid::computeVorticityConfinement(double dt)
 {
-   // TODO: Calculate vorticity confinement forces
+//   // TODO: Calculate vorticity confinement forces
+//
+//    // Apply the forces to the current velocity and store the result in target
+//	// STARTED.
+//
+//    // TODO: Get rid of this line after you implement yours
+//	target.mU = mU;
+//	target.mV = mV;
+//	target.mW = mW;
+//
+//    // TODO: Your code is here. It modifies target.mU,mV,mW for all faces.
+//    //
+//    //
+//    //
+//
+//   // Then save the result to our object
+//   mU = target.mU;
+//   mV = target.mV;
+//   mW = target.mW;
 
-    // Apply the forces to the current velocity and store the result in target
-	// STARTED.
 
-    // TODO: Get rid of this line after you implement yours
+	//=====================
+	//calculate the memory here
+	int Memlength = theDim[MACGrid::Z]*theDim[MACGrid::Y]*theDim[MACGrid::X];
+
+	vector <vec3> w (Memlength);
+	vector <vec3> wLength (Memlength);
+	vector <vec3> N (Memlength);
+	vector <vec3> Fconf (Memlength);
+
 	target.mU = mU;
 	target.mV = mV;
 	target.mW = mW;
 
-    // TODO: Your code is here. It modifies target.mU,mV,mW for all faces.
-    //
-    //
-    //
+	for(int k = 1; k < theDim[MACGrid::Z]; k++)
+	{
+		for(int j = 1; j < theDim[MACGrid::Y]; j++)
+		{
+			for(int i = 1; i < theDim[MACGrid::X]; i++)
+			{
+				int index = i+j*theDim[MACGrid::X]+k*theDim[MACGrid::Y]*theDim[MACGrid::X];
+				w [index] = vec3((target.mW(i, j+1, k)-target.mW(i, j-1, k))/(2*theCellSize)-(target.mV(i, j, k+1)-target.mV(i,j,k-1))/(2*theCellSize), (target.mU(i, j, k+1)-target.mU(i,j,k-1))/(2*theCellSize)-(target.mW(i+1,j,k)-target.mW(i-1,j,k))/(2*theCellSize), (target.mV(i+1, j, k) - target.mV(i-1, j,k))/(2*theCellSize) - (target.mU(i,j+1, k) - target.mU(i,j-1,k))/(2*theCellSize));
+			}
+		}
+	}
 
-   // Then save the result to our object
-   mU = target.mU;
-   mV = target.mV;
-   mW = target.mW;
+	for(int k = 2; k < theDim[MACGrid::Z]-1; k++)
+	{
+		for(int j = 2; j < theDim[MACGrid::Y]-1; j++)
+		{
+			for(int i = 2; i < theDim[MACGrid::X]-1; i++)
+			{
+				int index = i+j*theDim[MACGrid::X]+k*theDim[MACGrid::Y]*theDim[MACGrid::X];
+				int index1 = (i+1) + j*theDim[MACGrid::X] + k*theDim[MACGrid::X]*theDim[MACGrid::Y];
+				int index2 = (i-1) + j*theDim[MACGrid::X] + k*theDim[MACGrid::X]*theDim[MACGrid::Y];
+				int index3 = i + (j+1)*theDim[MACGrid::X] + k*theDim[MACGrid::X]*theDim[MACGrid::Y];
+				int index4 = i + (j-1)*theDim[MACGrid::X] + k*theDim[MACGrid::X]*theDim[MACGrid::Y];
+				int index5 = i + j*theDim[MACGrid::X] + (k+1)*theDim[MACGrid::X]*theDim[MACGrid::Y];
+				int index6 = i + j*theDim[MACGrid::X] + (k-1)*theDim[MACGrid::X]*theDim[MACGrid::Y];
+
+				wLength[index] = vec3((w[index1].Length() - w[index2].Length())/(2*theCellSize), (w[index3].Length() - w[index4].Length())/(2*theCellSize), (w[index5].Length() - w[index6].Length())/(2*theCellSize));
+
+			}
+		}
+	}
+
+
+	for(int k = 2; k < theDim[MACGrid::Z]-1; k++)
+	{
+		for(int j = 2; j < theDim[MACGrid::Y]-1; j++)
+		{
+			for(int i = 2; i < theDim[MACGrid::X]-1; i++)
+			{
+				int index = i+j*theDim[MACGrid::X]+k*theDim[MACGrid::Y]*theDim[MACGrid::X];
+				if((i>0)&&(j>0)&&(k>0)&&((i+1)<theDim[MACGrid::X])&&((j+1)<theDim[MACGrid::Y])&&((k+1)<theDim[MACGrid::Z]))
+				{
+					N[index] = wLength[index].Normalize();
+				}
+			}
+		}
+	}
+
+	double epislon = 50.00;
+	for(int k = 2; k < theDim[MACGrid::Z]-1; k++)
+	{
+		for(int j = 2; j < theDim[MACGrid::Y]-1; j++)
+		{
+			for(int i = 2; i < theDim[MACGrid::X]-1; i++)
+			{
+				int index = i+j*theDim[MACGrid::X]+k*theDim[MACGrid::Y]*theDim[MACGrid::X];
+				if((i>0)&&(j>0)&&(k>0)&&((i+1)<theDim[MACGrid::X])&&((j+1)<theDim[MACGrid::Y])&&((k+1)<theDim[MACGrid::Z]))
+				{
+					Fconf[index] = epislon*theCellSize*N[index].Cross(w[index]);
+					vec3 temp = Fconf[index];
+
+					target.mU (i,j,k) = target.mU(i,j,k) + temp[0]*dt;
+					target.mV (i,j,k) = target.mV(i,j,k) + temp[1]*dt;
+					target.mW (i,j,k) = target.mW(i,j,k) + temp[2]*dt;
+				}
+			}
+		}
+	}
+
+	mU = target.mU;
+	mV = target.mV;
+	mW = target.mW;
 }
 
 void MACGrid::addExternalForces(double dt)
@@ -249,108 +546,237 @@ void MACGrid::addExternalForces(double dt)
 
 void MACGrid::project(double dt)
 {
-   // TODO: Solve Ax = b for pressure
-   // 1. Contruct b
-   // 2. Construct A 
-   // 3. Solve for p
-   // Subtract pressure from our velocity and save in target
-	// STARTED.
+//   // TODO: Solve Ax = b for pressure
+//   // 1. Contruct b
+//   // 2. Construct A
+//   // 3. Solve for p
+//   // Subtract pressure from our velocity and save in target
+//	// STARTED.
+//
+//    // TODO: Get rid of these 3 lines after you implement yours
+//    target.mU = mU;
+//	target.mV = mV;
+//	target.mW = mW;
+//
+//    // TODO: Your code is here. It solves for a pressure field and modifies target.mU,mV,mW for all faces.
+//    //
+//    //
+//    //
+//
+//	#ifdef _DEBUG
+//	// Check border velocities:
+//	FOR_EACH_FACE {
+//		if (isValidFace(MACGrid::X, i, j, k)) {
+//
+//			if (i == 0) {
+//				if (abs(target.mU(i,j,k)) > 0.0000001) {
+//					PRINT_LINE( "LOW X:  " << target.mU(i,j,k) );
+//					//target.mU(i,j,k) = 0;
+//				}
+//			}
+//
+//			if (i == theDim[MACGrid::X]) {
+//				if (abs(target.mU(i,j,k)) > 0.0000001) {
+//					PRINT_LINE( "HIGH X: " << target.mU(i,j,k) );
+//					//target.mU(i,j,k) = 0;
+//				}
+//			}
+//
+//		}
+//		if (isValidFace(MACGrid::Y, i, j, k)) {
+//
+//
+//			if (j == 0) {
+//				if (abs(target.mV(i,j,k)) > 0.0000001) {
+//					PRINT_LINE( "LOW Y:  " << target.mV(i,j,k) );
+//					//target.mV(i,j,k) = 0;
+//				}
+//			}
+//
+//			if (j == theDim[MACGrid::Y]) {
+//				if (abs(target.mV(i,j,k)) > 0.0000001) {
+//					PRINT_LINE( "HIGH Y: " << target.mV(i,j,k) );
+//					//target.mV(i,j,k) = 0;
+//				}
+//			}
+//
+//		}
+//		if (isValidFace(MACGrid::Z, i, j, k)) {
+//
+//			if (k == 0) {
+//				if (abs(target.mW(i,j,k)) > 0.0000001) {
+//					PRINT_LINE( "LOW Z:  " << target.mW(i,j,k) );
+//					//target.mW(i,j,k) = 0;
+//				}
+//			}
+//
+//			if (k == theDim[MACGrid::Z]) {
+//				if (abs(target.mW(i,j,k)) > 0.0000001) {
+//					PRINT_LINE( "HIGH Z: " << target.mW(i,j,k) );
+//					//target.mW(i,j,k) = 0;
+//				}
+//			}
+//		}
+//	}
+//	#endif
+//
+//
+//   // Then save the result to our object
+//   mP = target.mP;
+//   mU = target.mU;
+//   mV = target.mV;
+//   mW = target.mW;
+//
+//	#ifdef _DEBUG
+//   // IMPLEMENT THIS AS A SANITY CHECK: assert (checkDivergence());
+//   // TODO: Fix duplicate code:
+//   FOR_EACH_CELL {
+//	   // Construct the vector of divergences d:
+//        double velLowX = mU(i,j,k);
+//        double velHighX = mU(i+1,j,k);
+//        double velLowY = mV(i,j,k);
+//        double velHighY = mV(i,j+1,k);
+//        double velLowZ = mW(i,j,k);
+//        double velHighZ = mW(i,j,k+1);
+//		double divergence = ((velHighX - velLowX) + (velHighY - velLowY) + (velHighZ - velLowZ)) / theCellSize;
+//		if (abs(divergence) > 0.02 ) {
+//			PRINT_LINE("WARNING: Divergent! ");
+//			PRINT_LINE("Divergence: " << divergence);
+//			PRINT_LINE("Cell: " << i << ", " << j << ", " << k);
+//		}
+//   }
+//	#endif
 
-    // TODO: Get rid of these 3 lines after you implement yours
-    target.mU = mU;
+
+
+	target.mP = mP;
+	target.mU = mU;
 	target.mV = mV;
 	target.mW = mW;
+	// Then save the result to our object
+	setUpAMatrix();
 
-    // TODO: Your code is here. It solves for a pressure field and modifies target.mU,mV,mW for all faces.
-    //
-    //
-    //
+	//initialize d
+	GridData initialNum;
+	initialNum.initialize(0);
+	//GridData& d = initialNum;
+	GridData d;
+	d.initialize(0);
 
-	#ifdef _DEBUG
-	// Check border velocities:
-	FOR_EACH_FACE {
-		if (isValidFace(MACGrid::X, i, j, k)) {
-
-			if (i == 0) {
-				if (abs(target.mU(i,j,k)) > 0.0000001) {
-					PRINT_LINE( "LOW X:  " << target.mU(i,j,k) );
-					//target.mU(i,j,k) = 0;
+	for(int k = 0; k < theDim[MACGrid::Z]; k++)
+	{
+		for(int j = 0; j < theDim[MACGrid::Y]; j++)
+		{
+			for(int i = 0; i < theDim[MACGrid::X]; i++)
+			{
+				if((i+1) == theDim[MACGrid::X])
+				{
+					target.mU ((i+1), j, k) = 0;
 				}
-			}
-
-			if (i == theDim[MACGrid::X]) {
-				if (abs(target.mU(i,j,k)) > 0.0000001) {
-					PRINT_LINE( "HIGH X: " << target.mU(i,j,k) );
-					//target.mU(i,j,k) = 0;
+				if((j+1) == theDim[MACGrid::Y])
+				{
+					target.mV (i, (j+1) , k) = 0;
 				}
-			}
-
-		}
-		if (isValidFace(MACGrid::Y, i, j, k)) {
-			
-
-			if (j == 0) {
-				if (abs(target.mV(i,j,k)) > 0.0000001) {
-					PRINT_LINE( "LOW Y:  " << target.mV(i,j,k) );
-					//target.mV(i,j,k) = 0;
+				if((k+1) == theDim[MACGrid::Z])
+				{
+					target.mW (i, j , (k+1)) = 0;
 				}
-			}
-
-			if (j == theDim[MACGrid::Y]) {
-				if (abs(target.mV(i,j,k)) > 0.0000001) {
-					PRINT_LINE( "HIGH Y: " << target.mV(i,j,k) );
-					//target.mV(i,j,k) = 0;
+				if(i == 0)
+				{
+					target.mU (i, j, k) = 0;
 				}
-			}
-
-		}
-		if (isValidFace(MACGrid::Z, i, j, k)) {
-			
-			if (k == 0) {
-				if (abs(target.mW(i,j,k)) > 0.0000001) {
-					PRINT_LINE( "LOW Z:  " << target.mW(i,j,k) );
-					//target.mW(i,j,k) = 0;
+				if(j == 0)
+				{
+					target.mV (i, j ,k) = 0;
 				}
-			}
-
-			if (k == theDim[MACGrid::Z]) {
-				if (abs(target.mW(i,j,k)) > 0.0000001) {
-					PRINT_LINE( "HIGH Z: " << target.mW(i,j,k) );
-					//target.mW(i,j,k) = 0;
+				if(k == 0)
+				{
+					target.mW (i, j , k) = 0;
 				}
 			}
 		}
 	}
-	#endif
 
 
-   // Then save the result to our object
-   mP = target.mP; 
-   mU = target.mU;
-   mV = target.mV;
-   mW = target.mW;
 
-	#ifdef _DEBUG
-   // IMPLEMENT THIS AS A SANITY CHECK: assert (checkDivergence());
-   // TODO: Fix duplicate code:
-   FOR_EACH_CELL {
-	   // Construct the vector of divergences d:
-        double velLowX = mU(i,j,k);
-        double velHighX = mU(i+1,j,k);
-        double velLowY = mV(i,j,k);
-        double velHighY = mV(i,j+1,k);
-        double velLowZ = mW(i,j,k);
-        double velHighZ = mW(i,j,k+1);
-		double divergence = ((velHighX - velLowX) + (velHighY - velLowY) + (velHighZ - velLowZ)) / theCellSize;
-		if (abs(divergence) > 0.02 ) {
-			PRINT_LINE("WARNING: Divergent! ");
-			PRINT_LINE("Divergence: " << divergence);
-			PRINT_LINE("Cell: " << i << ", " << j << ", " << k);
+	for(int k = 0; k < theDim[MACGrid::Z]; k++)
+	{
+		for(int j = 0; j < theDim[MACGrid::Y]; j++)
+		{
+			for(int i = 0; i < theDim[MACGrid::X]; i++)
+			{
+				d (i, j, k) = (-1.0)*theCellSize/dt*(target.mU ((i+1), j, k) - target.mU (i, j, k) + target.mV (i, (j+1), k) - target.mV (i, j, k) + target.mW (i, j, (k+1)) - target.mW (i, j, k));
+			}
 		}
-   }
-	#endif
+	}
 
+	//sanity check here
+	bool checkDivergence = false;
 
+	int i = 240;
+	while(checkDivergence==false)
+	{
+
+		checkDivergence = preconditionedConjugateGradient(AMatrix, target.mP, d, i, 0.01);
+		i = i+ 20;
+		// cout<<i<<endl;
+	}
+
+	if(checkDivergence)
+	{
+		for(int k = 0; k < theDim[MACGrid::Z]; k++)
+		{
+			for(int j = 0; j < theDim[MACGrid::Y]; j++)
+			{
+				for(int i = 0; i < theDim[MACGrid::X]; i++)
+				{
+					if((i+1) < theDim[MACGrid::X])
+					{
+						target.mU (i+1, j, k) = target.mU (i+1, j, k) - dt*(target.mP(i+1, j, k) - target.mP(i, j, k))/(1.0*theCellSize);
+					}
+				}
+			}
+		}
+
+		for(int k = 0; k < theDim[MACGrid::Z]; k++)
+		{
+			for(int j = 0; j < theDim[MACGrid::Y]; j++)
+			{
+				for(int i = 0; i < theDim[MACGrid::X]; i++)
+				{
+					if((j+1) < theDim[MACGrid::Y])
+					{
+						target.mV (i, j+1, k) = target.mV (i, j+1, k) - dt*(target.mP(i, j+1, k) - target.mP(i, j, k))/(1.0*theCellSize);
+					}
+				}
+			}
+		}
+
+		for(int k = 0; k < theDim[MACGrid::Z]; k++)
+		{
+			for(int j = 0; j < theDim[MACGrid::Y]; j++)
+			{
+				for(int i = 0; i < theDim[MACGrid::X]; i++)
+				{
+					if((k+1) < theDim[MACGrid::Z])
+					{
+						target.mW (i, j, k+1) = target.mV (i, j, k+1) - dt*(target.mP(i, j, k+1) - target.mP(i, j, k))/(1.0*theCellSize);
+					}
+				}
+			}
+		}
+
+		mP = target.mP;
+		mU = target.mU;
+		mV = target.mV;
+		mW = target.mW;
+	}else
+	{
+		mP = target.mP;
+		mU = target.mU;
+		mV = target.mV;
+		mW = target.mW;
+	}
 }
 
 vec3 MACGrid::getVelocity(const vec3& pt)
@@ -1154,4 +1580,39 @@ void MACGrid::drawCube(const MACGrid::Cube& cube)
          glVertex3d(LEN,  LEN, -LEN);
       glEnd();
    glPopMatrix();
+}
+
+
+
+void MACGrid::setUpAMatrix() {
+	FOR_EACH_CELL {
+
+				int numFluidNeighbors = 0;
+				if (i-1 >= 0) {
+					AMatrix.plusI(i-1,j,k) = -1;
+					numFluidNeighbors++;
+				}
+				if (i+1 < theDim[MACGrid::X]) {
+					AMatrix.plusI(i,j,k) = -1;
+					numFluidNeighbors++;
+				}
+				if (j-1 >= 0) {
+					AMatrix.plusJ(i,j-1,k) = -1;
+					numFluidNeighbors++;
+				}
+				if (j+1 < theDim[MACGrid::Y]) {
+					AMatrix.plusJ(i,j,k) = -1;
+					numFluidNeighbors++;
+				}
+				if (k-1 >= 0) {
+					AMatrix.plusK(i,j,k-1) = -1;
+					numFluidNeighbors++;
+				}
+				if (k+1 < theDim[MACGrid::Z]) {
+					AMatrix.plusK(i,j,k) = -1;
+					numFluidNeighbors++;
+				}
+				// Set the diagonal:
+				AMatrix.diag(i,j,k) = numFluidNeighbors;
+			}
 }

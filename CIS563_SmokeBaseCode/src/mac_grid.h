@@ -62,7 +62,10 @@ protected:
 	double getDensity(const vec3& pt);
 	vec3 getCenter(int i, int j, int k);
 
-	
+	// new function:
+	void setUpAMatrix();
+
+
 	vec3 getRewoundPosition(const vec3 & currentPosition, const double dt);
 	vec3 clipToGrid(const vec3& outsidePoint, const vec3& insidePoint);
 	double getSize(int dimension);
